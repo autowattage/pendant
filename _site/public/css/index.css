@@ -6,11 +6,12 @@
   --green: #91C74A;
   --pink: #E34675;
 }
+p { margin: 1rem; }
 p:first-child { margin-top: 0; }
 p:last-child { margin-bottom: 0; }
 a { color: var(--green);}
 a:active, a:hover, a:visited { color: var(--pink); }
-
+h2 { margin: 0; padding: 1rem 0; font-size: 2rem; }
 html, body {
   background-color: var(--white); color: var(--black);
   font-family: sans-serif; text-align: center;
@@ -18,32 +19,111 @@ html, body {
 }
 
 header {
-  background-color: var(--lightblue); padding-top: 1rem;
+  padding-top: 2rem; background-image: linear-gradient(to bottom, var(--blue), var(--lightblue));
   h1 { margin: 0; padding: 0 0.5rem;
-    img { width: 100%; max-width: 25rem; height: auto;}
+    img { width: 100%; max-width: 30rem; height: auto;}
   }
   p { margin: 0; padding: 0 1rem; }
   div:last-child {
-    border: 8rem solid transparent; border-top: 0; margin-top: -4rem;
+    border: 8rem solid transparent; border-top: 0; margin-top: -3rem;
     border-image: url("/public/img/clouds.png") 333 round;
+  }
+  a {
+    padding: 1rem 1.5rem; margin-top: 1rem; border-radius: 2rem; display: inline-block;
+    background-color: var(--blue); color: var(--white);
+    &:active, &:hover, &:visited { color: var(--white); }
+    &:active, &:hover { background-color: var(--pink); color: var(--black);}
   }
 }
 main {
+  background-image: linear-gradient(to top, #ECBFBA, var(--white));
+  #inspo {
+    ul {
+      margin: auto; padding: 0 1rem;
+      list-style-type: none;
+      display: flex; flex-wrap: wrap; gap: 2rem;
+      justify-content: center;
+      figure {
+        background-color: var(--lightblue); padding: 1rem; border-radius: 1.75rem;
+        margin: 0; max-width: 15rem;
+        img { width: 100%; height: 100%; border-radius: 1rem; }
+      }
+    }
+  }
+  .magpie-hr { width: 100%; max-width: 30rem; height: auto; box-sizing: border-box; padding: 1rem; }
+  #steps {
+    background-color: var(--black); color: var(--white); padding-bottom: 1rem;
+    ol {
+      margin: 0; padding: 0 1rem;
+      display: flex; flex-direction: column; gap: 1rem;
+      li, li:nth-child(3)>a {
+        background-color: var(--white); color: var(--black);
+        padding: 0.5rem 1rem; border-radius: 1rem; display: block;
+      }
+      li:nth-child(3) {
+        all: unset;
+        a { background-color: var(--pink);}
+      }
+      li:nth-child(4) {
+        background-color: var(--green);
+        img { display: block; width: 100%; max-width: 20rem; margin: auto; height: auto; }
+      }
+    }
+    
+  }
   #faq {
+    background-image: linear-gradient(to top, #82BDD7, var(--lightblue));
     padding: 0 1rem;
-    text-align: left;
+    details {
+      text-align: left;
+      background-color: var(--white); border-radius: 1rem; margin: 1rem 0;
+      summary { background-color: var(--blue); color: var(--white); padding: 0.5rem 1rem;  border-radius: 1rem; }
+      p { margin: 0; padding: 0.5rem 1rem 1rem; }
+    }
     h2 { text-align: center; }
-    p { margin-top: 0.25rem; margin-bottom: 1rem; }
+    #magpie-treasure { max-width: 10rem; padding: 1rem 0; }
   }
 }
 footer {
   background-color: var(--black); color: var(--white);
-  padding: 1rem 0; margin-top: 1rem;
+  padding: 1rem 0;
   div {
     margin-top: 1rem;
-    width: 100%; height: 3rem;
+    width: 100%; height: 4rem;
     background-repeat: repeat-x; background-size: contain;
     background-position: -0.75rem center;
     background-image: url("/public/img/charms.png");
   }
+}
+
+/* tiny mobile */
+@media screen and (min-width: 30rem) {
+  p { margin: 1rem 2rem; }
+  main>#inspo figure {
+    max-width: 12rem;
+  }
+  main>#steps ol, main>#faq details { width: 70%; margin: auto; }
+  main>#faq details { margin: 1rem auto;}
+}
+/* tablet */
+@media screen and (min-width: 40rem) {
+  p { margin: 1rem 8rem; }
+  header>div:last-child {
+    border-width: 12rem; margin-top: -7rem;
+  }
+  header>h1>img { max-width: 35rem; }
+  main>#steps ol, main>#faq details { width: 60%; margin: auto; }
+  main>#faq details { margin: 1rem auto;}
+  main>#faq>#magpie-treasure { max-width: 12rem; }
+  main>#magpie-hr { max-width: 100%; max-height: 10rem; height: auto; width: auto; }
+}
+/* desktop */
+@media screen and (min-width: 67rem) {
+  header>h1>img { max-width: 45rem; }
+  body>header {
+    padding-top: 5rem;
+  }
+  main>#steps ol, main>#faq details { width: 50%; margin: auto; }
+  main>#faq details { margin: 1rem auto;}
+  main>#faq>#magpie-treasure { max-width: 15rem; }
 }
