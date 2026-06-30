@@ -21,6 +21,7 @@ html, body {
 
 header {
   padding-top: 2rem; background-image: linear-gradient(to bottom, var(--blue), var(--lightblue));
+  position: relative;
   h1 { margin: 0; padding: 0 0.5rem;
     img { width: 100%; max-width: 30rem; height: auto;}
   }
@@ -34,6 +35,12 @@ header {
     background-color: var(--blue); color: var(--white);
     &:active, &:hover, &:visited { color: var(--white); }
     &:active, &:hover { background-color: var(--pink); color: var(--black);}
+  }
+  &::after {
+    content: ""; display: block; width: 6rem; height: 2rem;
+    background-image: url("/public/img/bunnyguy.png");
+    background-size: 100% 100%;
+    position: absolute; bottom: 0; right: 0.5rem;
   }
 }
 main {
@@ -112,7 +119,7 @@ footer {
   }
 }
 
-/* tiny mobile */
+/* big mobile */
 @media screen and (min-width: 30rem) {
   p { margin: 1rem 2rem; }
   main>#inspo figure {
@@ -123,6 +130,7 @@ footer {
 }
 /* tablet */
 @media screen and (min-width: 40rem) {
+  header::after { width: 7.5rem; height: 2.5rem;}
   p { margin: 1rem 8rem; }
   header>div:last-child {
     border-width: 12rem; margin-top: -7rem;
@@ -135,6 +143,7 @@ footer {
 }
 /* desktop */
 @media screen and (min-width: 67rem) {
+  header::after { width: 9rem; height: 3rem;}
   header>h1>img { max-width: 45rem; }
   body>header {
     padding-top: 5rem;
